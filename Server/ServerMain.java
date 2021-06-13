@@ -2,7 +2,7 @@ import java.io.*;
 import java.net.*;
 import java.util.*;
 
-public class Server {
+public class ServerMain {
     public static void main(String[] args) throws IOException {
         Responser responser = new Responser();
 
