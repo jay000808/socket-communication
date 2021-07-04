@@ -51,6 +51,15 @@ public class GameMaster {
                         myanswer = sc.next();
                         if(myanswer.equals("1")||myanswer.equals("2")||myanswer.equals("3")) {
                             break;
+                        } else if(myanswer.equals("[1]")){
+                            myanswer = "1";
+                            break;                       
+                        } else if(myanswer.equals("[2]")){
+                            myanswer = "2";
+                            break;
+                        } else if(myanswer.equals("[3]")){
+                            myanswer = "3";
+                            break;
                         } else {
                             System.out.println("1~3の数字で回答してください");                            
                         }
