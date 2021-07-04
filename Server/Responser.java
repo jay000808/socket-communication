@@ -18,7 +18,7 @@ public class Responser {
         {"情報理工学科の卒業に必要な単位数は？\n[1]126 [2]128 [3]125", "1"},
     };
 
-    //クライアントの要求に応じてゲームデータを送信
+    // クライアントの要求に応じてクイズゲームデータを送信
     public void sendGameData() throws IOException {
         try {
             ServerSocket s = new ServerSocket(8080); // ソケットを作成する
@@ -29,10 +29,10 @@ public class Responser {
                 PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true); // データ送信バッファ設定
                 
                 for(int i=0; i<10; i++) {
-                    out.println("Q"+ (i+1) + "：" + quizData[i][0]); // データの送信
+                    out.println("Q"+ (i+1) + "：" + quizData[i][0]); // クイズデータの送信
 
                     String real_answer = quizData[i][1];
-                    String myanswer = in.readLine(); // データの受信
+                    String myanswer = in.readLine(); // 回答データの受信
                     if(real_answer.equals(myanswer)) {
                         out.println("正解！");
                     } else {

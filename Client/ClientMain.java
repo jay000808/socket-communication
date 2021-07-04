@@ -9,18 +9,18 @@ public class ClientMain {
         Player player = new Player("", 0);
         GameMaster gameMaster = new GameMaster();
         
-        //プレイヤーの名前を入力
+        // プレイヤーの名前を入力
         System.out.println("--- 最初に名前を入力してください ---");
         System.out.print("▶︎ ");
 
         Scanner sc = new Scanner(System.in);
-        String playerName = sc.nextLine(); //名前の入力
+        String playerName = sc.nextLine(); // 名前の入力
                 
         player.setName(playerName);
 
-        gameMaster.explain(); // ゲームの説明
+        gameMaster.explain(); // クイズゲームの説明
 
-        gameMaster.startGame();  //ゲームスタート
+        gameMaster.startGame();  // クイズゲームスタート
         sc.close();
         gameMaster.showPoint(player);
     }

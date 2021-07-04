@@ -22,11 +22,10 @@ public class GameMaster {
         parse(1000);
         System.out.println("--- 早稲田大学に関するクイズです ---");
         System.out.println("--- 答えだと思う番号の数字だけを入力してください ---");
-        System.out.println(" ");
-        parse(3000);
+        parse(1000);
     }
 
-    //ゲームをスタートさせる
+    // クイズゲームをスタートさせる
     public void startGame() throws IOException {
         try {
             InetAddress addr = InetAddress.getByName("localhost"); // IP アドレスへの変換
@@ -38,6 +37,7 @@ public class GameMaster {
                 
                 int count = 10;
                 while(count > 0) {
+                    System.out.println(" ");
                     for(int i=0; i<2; i++) {
                         String quiz = in.readLine(); // クイズデータ受信
                         parse(1000);
@@ -67,6 +67,8 @@ public class GameMaster {
                     }
                     count--;
                 }
+                parse(1000);
+                System.out.println("採点中...");                
             } catch (IOException e) {
                 e.printStackTrace();
             } 
@@ -78,31 +80,35 @@ public class GameMaster {
 
     private void evaluation(int count) {
         if(count >= 9) {
-            System.out.println("--- 評価：A+ ---");
-            System.out.println("--- あなたの早稲田への知識には脱帽です ---");
+            System.out.println("評価: A+");
+            System.out.println("あなたの早稲田への知識には脱帽です");
         } else if(count >= 8) {
-            System.out.println("--- 評価：A ---");
-            System.out.println("--- あなたの早稲田への知識は十分あります ---");
+            System.out.println("評価: A");
+            System.out.println("あなたの早稲田への知識は十分あります");
         } else if(count >= 7) {
-            System.out.println("--- 評価：B ---");
-            System.out.println("--- 早稲田の知識の更なる高みを目指しましょう ---");
+            System.out.println("評価: B");
+            System.out.println("早稲田の知識の更なる高みを目指しましょう");
         } else if(count >= 6) {
-            System.out.println("--- 評価：C ---");
-            System.out.println("--- 学問だけでなく早稲田のことも知ってあげましょう ---");
+            System.out.println("評価: C");
+            System.out.println("学問だけでなく早稲田のことも知ってあげましょう");
         } else {
-            System.out.println("--- 評価：F ---");
-            System.out.println("--- もう少し早稲田のことも好きになりましょう ---");
+            System.out.println("評価: F");
+            System.out.println("もう少し早稲田のことも好きになりましょう");
         }
     }
 
     public void showPoint(Player player) {
         parse(1000);
         System.out.println(" ");
-        System.out.println("--- 正解数: " + player.getPoint() + " ---");
+        System.out.println("--- 成績表 ---");
+        parse(1000);
+        System.out.println("名前: " + Player.getName());
+        parse(1000);
+        System.out.println("正解数: " + player.getPoint());
         parse(1000);
         evaluation(player.getPoint());
         System.out.println(" ");
-        parse(3000);
+        parse(2000);
         System.out.println("--- お疲れ様でした！ ---");
     }
 }
