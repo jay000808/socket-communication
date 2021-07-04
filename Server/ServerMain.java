@@ -10,9 +10,6 @@ public class ServerMain {
         responser.sendGameData();
 
         //クライアントはゲームをプレイ中・・・
-        
-        //スコアの受信・登録・ランキングの送信
-        // responser.updateRanking();
     
     }
 
